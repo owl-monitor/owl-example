@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build",
+    "build": "NODE_ENV=development nodemon --exec ./node_modules/.bin/ts-node -- ./web/index.ts",
+    "build:windows": "nodemon --exec ts-node -- web/index.ts",
+    "run": "nodemon --exec ts-node -- web/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd web && npm install"
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,21 @@
   "bugs": {
     "url": "https://github.com/owl-monitor/owl-example/issues"
   },
-  "homepage": "https://github.com/owl-monitor/owl-example#readme"
+  "homepage": "https://github.com/owl-monitor/owl-example#readme",
+  "engines": {
+    "node": "8.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "8.0.10",
+    "lodash": "4.17.4",
+    "nodemon": "1.11.0",
+    "ts-node": "3.2.0",
+    "typescript": "2.4.1"
+  },
+  "dependencies": {
+    "@types/bunyan": "1.8.0",
+    "bcrypt-nodejs": "0.0.3",
+    "bunyan": "1.8.10",
+    "mongoose": "4.11.2"
+  }
 }
